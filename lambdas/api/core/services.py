@@ -1,20 +1,28 @@
-from pypika import Field
 from pypika import Query
 from pypika import Table
 
 from database import DATABASE_CONNECTION
 
 
+SERVICES = {}
+
+
 class Service:
     """
     """
 
-    main_table = ''
+    table = None
+    table_name = ''
 
-    def retrieve_values(self, fields: List):
+    def __init__(self):
+        SERVICES[self.__class__.__name__] = self
+        self.table = Table(self.table_name)
+
+    def retrieve_values(self, query=None, *args) -> List:
         """
         A virtual method for reading values from the database.
         """
-        query = Query.from_(self.main_table).select(*fields)
+        if not query:
+            query = Query.from_(self.table).select(*args)
         data = DATABASE_CONNECTION.run_query(query)
         return data

@@ -2,7 +2,7 @@ import json
 
 import graphene
 
-from database import DATABASE_CONNECTION
+from core.database import DATABASE_CONNECTION
 
 
 DATABASE_CONNECTION.open()
@@ -20,3 +20,6 @@ def api(event, context):
     }
 
     return response
+
+
+import pdb; pdb.set_trace()
