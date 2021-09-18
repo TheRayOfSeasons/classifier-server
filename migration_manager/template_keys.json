@@ -1,0 +1,9 @@
+{
+  "DEBUG": false,
+  "SECRET_KEY": "secret",
+  "DATABASE_NAME": "classifier",
+  "DATABASE_HOST": "localhost",
+  "DATABASE_PORT": "5432",
+  "DATABASE_USER": "",
+  "DATABASE_PASSWORD": ""
+}
